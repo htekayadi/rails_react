@@ -34,7 +34,8 @@ var NewForm = React.createClass({
     }
   },
   validForm: function() {
-    if (this.state.name && this.state.place && this.state.event_date && this.state.description) {
+    if (this.state.name && this.state.place &&
+        this.state.event_date && this.state.description) {
       return true;
     } else {
       return false;

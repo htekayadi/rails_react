@@ -17,7 +17,7 @@ var Event = React.createClass({
         this.props.handleDeleteRecord();
       }.bind(this),
       error: function(xhr, status, error) {
-        alert('Cannot delete requested record: ', error)
+        alert('Cannot delete requested record: ', error);
       }
     });
   },
@@ -26,7 +26,7 @@ var Event = React.createClass({
     this.setState({ edit: !this.state.edit });
   },
   recordValue: function(field) {
-    return ReactDROM.findDOMNode(this.refs[field]).value;
+    return ReactDOM.findDOMNode(this.refs[field]).value;
   },
   handleUpdate: function(e) {
     e.preventDefault();
@@ -35,12 +35,12 @@ var Event = React.createClass({
         name: this.recordValue("name"),
         description: this.recordValue("description"),
         date: this.recordValue("date"),
-        place: this.recordValue("place"),
+        place: this.recordValue("place")
       };
       $.ajax({
         method: 'PUT',
         url: '/api/events/' + this.props.event.id,
-        data: { event: event.data },
+        data: { event: event_data },
         success: function(data) {
           this.props.handleUpdateRecord(this.props.event, data);
           this.setState({ edit: false });
@@ -62,7 +62,7 @@ var Event = React.createClass({
   },
   renderForm: function() {
     return(
-      <td>
+      <tr>
         <td>
           <input name="name"
                  defaultValue={this.props.event.name}
@@ -100,12 +100,12 @@ var Event = React.createClass({
              onClick={this.handleUpdate}>
             Save
           </a>
-          <a className="btn btn-success btn-sm"
-             onClick={this.handleToggle}>
+          <a className="btn btn-default btn-sm"
+             onClick={this.handleToggle} >
             Cancel
           </a>
         </td>
-      </td>
+      </tr>
     );
   },
   renderRecord: function() {
@@ -118,12 +118,12 @@ var Event = React.createClass({
         <td>{event.description}</td>
         <td>
           <a className="btn btn-danger btn-xs"
-            onClick={this.handleDelete} >
+             onClick={this.handleDelete} >
             Delete
           </a>
           <a className="btn btn-primary btn-xs"
-            onClick={this.handleToggle} >
-            Edit
+             onClick={this.handleToggle} >
+             Edit
           </a>
         </td>
       </tr>
