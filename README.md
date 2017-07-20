@@ -1,24 +1,11 @@
-# README
+# Ruby on Rails with ReactJS Example
+A sample app for Ruby on Rails and ReactJS stack
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### `Configuration`
+`bundle install`
 
-Things you may want to cover:
+`rake db:migrate`
 
-* Ruby version
+`rails server`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
